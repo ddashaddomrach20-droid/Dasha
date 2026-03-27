@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Экран входа/регистрации -->
+    <div id="authScreen" class="auth-screen">
+        <div class="auth-container">
+            <h1 class="auth-title">💬 Messenger</h1>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Вход</button>
+                <button class="auth-tab" data-tab="register">Регистрация</button>
+            </div>
+            
+            <!-- Форма входа -->
+            <form id="loginForm" class="auth-form">
+                <input type="text" id="loginName" class="auth-input" placeholder="Ваше ФИО" required>
+                <input type="password" id="loginPassword" class="auth-input" placeholder="Пароль" required>
+                <button type="submit" class="auth-btn">Войти</button>
+                <p class="auth-error" id="loginError"></p>
+            </form>
+            
+            <!-- Форма регистрации -->
+            <form id="registerForm" class="auth-form hidden">
+                <input type="text" id="registerName" class="auth-input" placeholder="Ваше ФИО" required>
+                <input type="password" id="registerPassword" class="auth-input" placeholder="Пароль (мин. 4 символа)" required minlength="4">
+                <button type="submit" class="auth-btn">Зарегистрироваться</button>
+                <p class="auth-error" id="registerError"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Основной экран мессенджера (скрыт по умолчанию) -->
+    <div id="messengerScreen" class="messenger-screen hidden">
+        <div class="container">
+            <!-- Боковая панель со списком чатов -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="current-user">
+                        <span id="currentUserName"></span>
+                        <button id="logoutBtn" class="logout-btn">✕</button>
+                    </div>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Поиск контактов...">
+                </div>
+                <div class="chat-list" id="chatList">
+                    <!-- Чаты будут добавлены через JS -->
+                </div>
+            </aside>
+
+            <!-- Область переписки -->
+            <main class="chat-area">
+                <div class="chat-header" id="chatHeader">
+                    <div class="chat-info">
+                        <h3 class="chat-name">Выберите чат</h3>
+                    </div>
+                </div>
+                
+                <div class="messages" id="messages">
+                    <div class="empty-state">Выберите чат для начала общения</div>
+                </div>
+                
+                <div class="message-input-area">
+                    <input type="text" id="messageInput" class="message-input" placeholder="Написать сообщение..." disabled>
+                    <button id="sendBtn" class="send-btn" disabled>
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0e1621;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Экран авторизации */
+.auth-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e2a3a 0%, #0e1621 100%);
+}
+
+.auth-container {
+    background-color: #17212b;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.auth-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background-color: #242f3d;
+    color: #6c7883;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.auth-tab.active {
+    background-color: #5288c1;
+    color: #fff;
+}
+
+.auth-tab:hover:not(.active) {
+    background-color: #2b3a4a;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-input {
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: #242f3d;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.auth-input:focus {
+    box-shadow: 0 0 0 2px #5288c1;
+}
+
+.auth-input::placeholder {
+    color: #6c7883;
+}
+
+.auth-btn {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #5288c1 0%, #4a7bb8 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(82, 136, 193, 0.4);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+.auth-error {
+    color: #ff6b6b;
+    font-size: 13px;
+    text-align: center;
+    min-height: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Мессенджер */
+.messenger-screen {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Боковая панель */
+.sidebar {
+    width: 350px;
+    background-color: #17212b;
+    border-right: 1px solid #0e1621;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 15px;
+    border-bottom: 1px solid #0e1621;
+}
+
+.current-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background-color: #242f3d;
+    border-radius: 10px;
+}
+
+.current-user span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: #6c7883;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    color: #ff6b6b;
+    background-color: #2b3a4a;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #242f3d;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #6c7883;
+}
+
+.chat-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-item {
+    display: flex;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chat-item:hover {
+    background-color: #202b36;
+}
+
+.chat-item.active {
+    background-color: #2b5278;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.chat-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-name {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.last-message {
+    font-size: 14px;
+    color: #6c7883;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-item.active .last-message {
+    color: #a8b5c4;
+}
+
+/* Область переписки */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #0e1621;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%230e1621" width="100" height="100"/><circle fill="%2317212b" cx="25" cy="25" r="2"/><circle fill="%2317212b" cx="75" cy="75" r="2"/></svg>');
+}
+
+.chat-header {
+    padding: 15px 20px;
+    background-color: #17212b;
+    border-bottom: 1px solid #0e1621;
+}
+
+.chat-name-header {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.empty-state {
+    text-align: center;
+    color: #6c7883;
+    margin-top: 100px;
+    font-size: 16px;
+}
+
+.message {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.incoming {
+    background-color: #17212b;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+.message.outgoing {
+    background-color: #2b5278;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.message-time {
+    font-size: 11px;
+    color: #6c7883;
+    text-align: right;
+    margin-top: 4px;
+}
+
+.message.outgoing .message-time {
+    color: #8fa8c4;
+}
+
+/* Поле ввода сообщения */
+.message-input-area {
+    display: flex;
+    padding: 15px 20px;
+    background-color: #17212b;
+    gap: 10px;
+}
+
+.message-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #242f3d;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.message-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.message-input::placeholder {
+    color: #6c7883;
+}
+
+.send-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background-color: #5288c1;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.send-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.send-btn:hover:not(:disabled) {
+    background-color: #4a7bb8;
+}
+
+.send-btn:active:not(:disabled) {
+    background-color: #3d6a9e;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Результаты поиска */
+.search-results {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #242f3d;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #17212b;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: #202b36;
+}
+
+.search-result-item .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.add-contact-btn {
+    margin-left: auto;
+    padding: 6px 12px;
+    background-color: #5288c1;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.add-contact-btn:hover {
+    background-color: #4a7bb8;
+}
