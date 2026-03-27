@@ -1,5 +1,5 @@
 // Конфигурация - замените на URL вашего сервера после деплоя
-const SERVER_URL = 'http://localhost:3000';
+const SERVER_URL = 'https://dasha-zzm5.onrender.com';
 
 // Состояние приложения
 let currentUser = null;
